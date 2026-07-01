@@ -31,11 +31,11 @@ body {
 
 .titulo-principal span {
     color: var(--verde);
-
 }
 
+/* CORRIGIDO: Nome da fonte corrigido para Chakra Petch */
 .botao {
-    font-family: 'Chakra Perch', sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
     background-color: var(--botao-inativo);
     color: var(--branco);
     display: flex;
@@ -48,29 +48,40 @@ body {
     border-left: 2px solid var(--botao-ativo);
     border-right: 2px solid var(--botao-ativo);
     border-top: none;
-
+    cursor: pointer; /* Adicionado para dar efeito de clique */
 }
 
 .botao:first-child {
     border-radius: 40px 40px 0 0;
-
 }
 
-.botoes.ativo {
-    display: block;
+/* CORRIGIDO: Garante que os botões apareçam no mobile */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.ativo {
+/* CORRIGIDO: Especificando que é o BOTAO ativo */
+.botao.ativo {
     background-color: var(--botao-ativo);
     border-bottom: 4px solid var(--verde);
+}
+
+/* Lógica das Abas */
+.aba-conteudo {
+    display: none;
 }
 
 .aba-conteudo.ativo {
     display: block;
 }
 
-.aba-conteudo {
-    display: none;
+.abas-textos {
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .aba-conteudo-titulo-principal {
@@ -84,6 +95,7 @@ body {
     text-transform: uppercase;
 }
 
+/* Estilos do Contador */
 .contador {
     display: flex;
     justify-content: center;
@@ -101,56 +113,17 @@ body {
     margin: 0;
 }
 
-.contador-digito-titulo {
+/* CORRIGIDO: unificado contador-digito-texto e titulo caso use na estrutura */
+.contador-digito-texto, .contador-digito-titulo {
     color: var(--verde);
     font-size: 20px;
     margin: 0;
 }
 
-.abas-textos {
-    background-color: var(--texto-fundo);
-    padding: 40px;
-}
-
-.aba-conteudo-titulo-principal {
-    font-size: 28px;
-    text-align: center;
-}
-
-.aba-conteudoitulo-secundario {
-    text-align: center;
-    color: var(--verde);
-    text-transform: uppercase;
-}
-
-.contador {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.contador-digito {
-    padding: 0 16px;
-    text-align: center;
-    min-width: 100px;
-
-}
-
-.contador-digito-numero {
-    font-size: 80px;
-    margin: 0;
-
-}
-
-.contador-digito-titulo {
-    color: var(--verde);
-    font-size: 20px;
-    margin: 0;
-}
-
+/* Responsivo para Telas Maiores */
 @media screen and (min-width: 768px) {
     .botoes {
-        display: flex;
+        flex-direction: row;
     }
 
     .botao:first-child {
